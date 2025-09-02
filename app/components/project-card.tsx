@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, Eye, Star, ArrowUpRight } from "lucide-react"
-
+import Link from "next/link"
 interface ProjectCardProps {
   project: {
     title: string
@@ -62,9 +62,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
     return (
       <div
         ref={cardRef}
-        className={`transform transition-all duration-700 ease-out ${
-          isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
-        }`}
+        className={`transform transition-all duration-700 ease-out ${isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
+          }`}
       >
         <Card
           className="group relative overflow-hidden bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20"
@@ -79,9 +78,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className={`absolute w-1 h-1 bg-cyan-400 rounded-full transition-all duration-1000 ${
-                  isHovered ? "animate-pulse" : ""
-                }`}
+                className={`absolute w-1 h-1 bg-cyan-400 rounded-full transition-all duration-1000 ${isHovered ? "animate-pulse" : ""
+                  }`}
                 style={{
                   left: `${20 + i * 15}%`,
                   top: `${30 + (i % 3) * 20}%`,
@@ -97,54 +95,56 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
               <img
                 src={project.image || "/placeholder.svg"}
                 alt={project.title}
-                className={`w-full h-64 object-cover transition-all duration-700 ${
-                  isLoaded ? "scale-100 blur-0" : "scale-110 blur-sm"
-                } ${isHovered ? "scale-110 brightness-110" : ""}`}
+                className={`w-full h-64 object-cover transition-all duration-700 ${isLoaded ? "scale-100 blur-0" : "scale-110 blur-sm"
+                  } ${isHovered ? "scale-110 brightness-110" : ""}`}
               />
 
               {/* Animated overlay */}
               <div
-                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 ${
-                  isHovered ? "opacity-100" : "opacity-60"
-                }`}
+                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 ${isHovered ? "opacity-100" : "opacity-60"
+                  }`}
               />
 
               {/* Scanning line effect */}
               <div
-                className={`absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent transform -skew-x-12 transition-all duration-1000 ${
-                  isHovered ? "translate-x-full" : "-translate-x-full"
-                }`}
+                className={`absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent transform -skew-x-12 transition-all duration-1000 ${isHovered ? "translate-x-full" : "-translate-x-full"
+                  }`}
                 style={{ width: "50%" }}
               />
             </div>
 
             {/* Action buttons with stagger animation */}
             <div
-              className={`absolute inset-0 flex items-center justify-center space-x-4 transition-all duration-500 ${
-                isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
+              className={`absolute inset-0 flex items-center justify-center space-x-4 transition-all duration-500 ${isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
             >
-              <Button
-                size="sm"
-                variant="outline"
-                className={`border-white/50 text-white hover:bg-white hover:text-black bg-black/20 backdrop-blur-sm transform transition-all duration-300 ${
-                  isHovered ? "scale-100 translate-y-0" : "scale-90 translate-y-2"
-                }`}
-                style={{ transitionDelay: "100ms" }}
-              >
-                <Github className="h-4 w-4 mr-2" />
-                Code
-              </Button>
-              <Button
-                size="sm"
-                className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 border-0 transform transition-all duration-300 ${
-                  isHovered ? "scale-100 translate-y-0" : "scale-90 translate-y-2"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Live Demo
-              </Button>
+              {project.github && (
+                <Link href={project.github} target="_blank">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className={`border-white/50 text-white hover:bg-white hover:text-black bg-black/20 backdrop-blur-sm transform transition-all duration-300 ${isHovered ? "scale-100 translate-y-0" : "scale-90 translate-y-2"
+                      }`}
+                    style={{ transitionDelay: "100ms" }}
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    Code
+                  </Button>
+                </Link>
+              )}
+              {project.live && (
+                <Link href={project.live} target="_blank">
+                  <Button
+                    size="sm"
+                    className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 border-0 transform transition-all duration-300 ${isHovered ? "scale-100 translate-y-0" : "scale-90 translate-y-2"
+                      }`}
+                    style={{ transitionDelay: "200ms" }}
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" href={project.live} />
+                    Live Demo
+                  </Button>
+                </Link>
+              )}
             </div>
 
             {/* Featured badge with pulse animation */}
@@ -161,17 +161,15 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
 
           <CardHeader className="pb-4 relative">
             <CardTitle
-              className={`text-xl text-white group-hover:text-cyan-400 transition-all duration-300 ${
-                isVisible ? "translate-x-0" : "translate-x-4"
-              }`}
+              className={`text-xl text-white group-hover:text-cyan-400 transition-all duration-300 ${isVisible ? "translate-x-0" : "translate-x-4"
+                }`}
             >
               {project.title}
               <ArrowUpRight className="inline-block h-4 w-4 ml-2 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
             </CardTitle>
             <CardDescription
-              className={`text-gray-300 text-base leading-relaxed transition-all duration-500 ${
-                isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-              }`}
+              className={`text-gray-300 text-base leading-relaxed transition-all duration-500 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                }`}
             >
               {project.description}
             </CardDescription>
@@ -183,9 +181,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className={`bg-white/10 text-gray-300 border-white/20 hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-300 transform ${
-                    isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-                  }`}
+                  className={`bg-white/10 text-gray-300 border-white/20 hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+                    }`}
                   style={{
                     transitionDelay: `${300 + techIndex * 50}ms`,
                     animationDelay: `${techIndex * 100}ms`,
@@ -207,9 +204,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
   return (
     <div
       ref={cardRef}
-      className={`transform transition-all duration-700 ease-out ${
-        isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-6 opacity-0 scale-95"
-      }`}
+      className={`transform transition-all duration-700 ease-out ${isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-6 opacity-0 scale-95"
+        }`}
     >
       <Card
         className="group bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 relative overflow-hidden"
@@ -224,9 +220,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
           {[...Array(3)].map((_, i) => (
             <div
               key={i}
-              className={`w-1.5 h-1.5 rounded-full bg-cyan-400/50 transition-all duration-300 ${
-                isHovered ? "animate-bounce" : ""
-              }`}
+              className={`w-1.5 h-1.5 rounded-full bg-cyan-400/50 transition-all duration-300 ${isHovered ? "animate-bounce" : ""
+                }`}
               style={{ animationDelay: `${i * 100}ms` }}
             />
           ))}
@@ -236,54 +231,56 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
           <img
             src={project.image || "/placeholder.svg"}
             alt={project.title}
-            className={`w-full h-48 object-cover transition-all duration-500 ${
-              isLoaded ? "scale-100 blur-0" : "scale-105 blur-sm"
-            } ${isHovered ? "scale-110 brightness-110" : ""}`}
+            className={`w-full h-48 object-cover transition-all duration-500 ${isLoaded ? "scale-100 blur-0" : "scale-105 blur-sm"
+              } ${isHovered ? "scale-110 brightness-110" : ""}`}
           />
 
           {/* Shimmer effect */}
           <div
-            className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 transition-all duration-1000 ${
-              isHovered ? "translate-x-full" : "-translate-x-full"
-            }`}
+            className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 transition-all duration-1000 ${isHovered ? "translate-x-full" : "-translate-x-full"
+              }`}
             style={{ width: "30%" }}
           />
 
           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center space-x-3">
-            <Button
-              size="sm"
-              variant="outline"
-              className={`border-white/50 text-white hover:bg-white hover:text-black bg-black/20 backdrop-blur-sm transform transition-all duration-300 ${
-                isHovered ? "scale-100 rotate-0" : "scale-90 rotate-3"
-              }`}
-            >
-              <Github className="h-4 w-4 mr-1" />
-              Code
-            </Button>
-            <Button
-              size="sm"
-              className={`bg-cyan-500 hover:bg-cyan-600 border-0 transform transition-all duration-300 ${
-                isHovered ? "scale-100 rotate-0" : "scale-90 -rotate-3"
-              }`}
-            >
-              <Eye className="h-4 w-4 mr-1" />
-              View
-            </Button>
+            {project.github && (
+              <Link href={project.github} target="_blank">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className={`border-white/50 text-white hover:bg-white hover:text-black bg-black/20 backdrop-blur-sm transform transition-all duration-300 ${isHovered ? "scale-100 rotate-0" : "scale-90 rotate-3"
+                    }`}
+                >
+                  <Github className="h-4 w-4 mr-1" />
+                  Code
+                </Button>
+              </Link>
+            )}
+            {project.live && (
+              <Link href={project.live} target="_blank">
+                <Button
+                  size="sm"
+                  className={`bg-cyan-500 hover:bg-cyan-600 border-0 transform transition-all duration-300 ${isHovered ? "scale-100 rotate-0" : "scale-90 -rotate-3"
+                    }`}
+                >
+                  <Eye className="h-4 w-4 mr-1" />
+                  View
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
 
         <CardHeader className="relative">
           <CardTitle
-            className={`text-white group-hover:text-cyan-400 transition-all duration-300 ${
-              isVisible ? "translate-x-0" : "translate-x-2"
-            }`}
+            className={`text-white group-hover:text-cyan-400 transition-all duration-300 ${isVisible ? "translate-x-0" : "translate-x-2"
+              }`}
           >
             {project.title}
           </CardTitle>
           <CardDescription
-            className={`text-gray-400 transition-all duration-500 ${
-              isVisible ? "translate-x-0 opacity-100" : "translate-x-2 opacity-0"
-            }`}
+            className={`text-gray-400 transition-all duration-500 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-2 opacity-0"
+              }`}
           >
             {project.description}
           </CardDescription>
@@ -295,9 +292,8 @@ export default function ProjectCard({ project, featured, index = 0 }: ProjectCar
               <Badge
                 key={tech}
                 variant="secondary"
-                className={`bg-white/10 text-gray-300 border-white/20 text-xs hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-300 transform ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
-                }`}
+                className={`bg-white/10 text-gray-300 border-white/20 text-xs hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+                  }`}
                 style={{
                   transitionDelay: `${200 + techIndex * 50}ms`,
                 }}

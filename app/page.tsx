@@ -114,72 +114,127 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "Tech-Nest (Graduation Project)",
-      description:
-        "Social media platform focused on technology with article posting, comments, likes, and author following features. Built with a team of 5 developers.",
-      image: "/placeholder.svg?height=300&width=400&text=Tech-Nest+Social+Platform",
-      tech: ["Next.js", "TypeScript", "MUI", "Prisma", "Tailwind CSS"],
-      github: "https://github.com/mazen-essam",
-      live: "#",
+      title: "Arcplan Group Website",
+      description: "LMS website for Arcplan Group built with Laravel and Tailwind CSS.",
+      image: "/arcplan.png",
+      tech: ["Laravel", "Tailwind CSS", "MySQL", "PHP"],
+      github: "",
+      live: "https://arcplangroup.com/",
       featured: true,
       category: "Full Stack",
     },
     {
-      title: "3D Interactive Portfolio",
-      description:
-        "Modern portfolio website with Three.js animations, interactive 3D elements, and responsive design showcasing technical skills.",
-      image: "/placeholder.svg?height=300&width=400&text=3D+Portfolio",
-      tech: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
-      github: "https://github.com/mazen-essam",
-      live: "#",
+      title: "Itrend Website",
+      description: "LMS website for Itrend with dark/light themes and bilingual support (Arabic/English).",
+      image: "/itrend.png",
+      tech: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
+      github: "",
+      live: "https://itrend.learnock.com/",
       featured: true,
-      category: "Frontend",
-    },
-    {
-      title: "Arcplan Group Website",
-      description:
-        "Learning Management System (LMS) website for Arcplan Group with comprehensive course management and user interaction features.",
-      image: "/placeholder.svg?height=300&width=400&text=Arcplan+LMS",
-      tech: ["Laravel", "Tailwind CSS", "MySQL", "PHP"],
-      github: "https://github.com/mazen-essam",
-      live: "#",
-      featured: false,
       category: "Full Stack",
     },
     {
       title: "Gallaxy Academy Platform",
-      description:
-        "Educational platform for Gallaxy Academy with course management, student tracking, and interactive learning features.",
-      image: "/placeholder.svg?height=300&width=400&text=Gallaxy+Academy",
+      description: "Educational LMS platform for Gallaxy Academy with student tracking and interactive features.",
+      image: "/galaxy.png",
       tech: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
       github: "https://github.com/mazen-essam",
-      live: "#",
+      live: "https://galaxyoe.online/",
       featured: false,
       category: "Full Stack",
     },
     {
-      title: "Arkan Group E-commerce",
-      description:
-        "Full-featured e-commerce website for Arkan Group with product catalog, shopping cart, and payment integration.",
-      image: "/placeholder.svg?height=300&width=400&text=Arkan+E-commerce",
-      tech: ["Next.js", "Tailwind CSS", "TypeScript", "Stripe"],
+      title: "Cognistar Academy Website",
+      description: "LMS website for Cognistar Academy using Laravel and Tailwind.",
+      image: "/cognistar.png",
+      tech: ["Laravel", "Tailwind CSS", "MySQL"],
       github: "https://github.com/mazen-essam",
-      live: "#",
-      featured: false,
+      live: "https://cognistar.net/",
+      featured: true,
+      category: "Full Stack",
+    },
+    {
+      title: "Arkan Group E-commerce",
+      description: "Full-featured e-commerce website for Arkan Group with product catalog and cart.",
+      image: "/arkan.png",
+      tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/mazen-essam/arkan-last",
+      live: "https://arkan-last.vercel.app/site/home",
+      featured: true,
       category: "E-commerce",
     },
     {
+      title: "Tech-Nest (Graduation Project)",
+      description: "Social media platform focused on technology with articles, comments, likes, and author following.",
+      image: "/freepik__the-words-tech-nest-designed-as-a-futuristic-logo-__78214.png",
+      tech: ["Next.js", "TypeScript", "MUI", "Prisma", "Tailwind CSS"],
+      github: "https://github.com/mazen-essam/graduation",
+      live: "",
+      featured: false,
+      category: "Full Stack",
+    },
+    {
+      title: "Italent Platform",
+      description: "Educational LMS platform for kids with student tracking and interactive features.",
+      image: "/itanlent.png",
+      tech: ["Laravel", "Tailwind CSS", "MySQL", "JavaScript"],
+      github: "",
+      live: "https://italenteg.com/",
+      featured: false,
+      category: "Full Stack",
+    },
+    // {
+    //   title: "3D Interactive Portfolio",
+    //   description: "Modern portfolio website with Three.js animations and interactive 3D elements.",
+    //   image: "/placeholder.svg?height=300&width=400&text=3D+Portfolio",
+    //   tech: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+    //   github: "https://github.com/mazen-essam",
+    //   live: "https://mazenessam.netlify.app/",
+    //   featured: false,
+    //   category: "Frontend",
+    // },
+    {
       title: "Summarize AI",
-      description:
-        "AI-powered text summarization tool using OpenAI API with link-based content extraction and processing capabilities.",
-      image: "/placeholder.svg?height=300&width=400&text=Summarize+AI",
+      description: "AI-powered text summarization tool using OpenAI API with link-based content extraction.",
+      image: "/sumz.png",
       tech: ["React", "Tailwind CSS", "OpenAI API", "Redux"],
-      github: "https://github.com/mazen-essam",
-      live: "#",
+      github: "https://github.com/mazen-essam/summarize-ai",
+      live: "https://reactsummarizegpt.netlify.app/",
       featured: false,
       category: "AI/ML",
     },
-  ]
+    {
+      title: "E-commerce Cars",
+      description: "Frontend e-commerce project for cars built from scratch with HTML, CSS, JS, and Bootstrap.",
+      image: "/cars.png",
+      tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      github: "https://github.com/mazen-essam/ecommers-cars",
+      live: "https://mazen-essam.github.io/ecommers-cars/",
+      featured: false,
+      category: "Frontend",
+    },
+    {
+      title: "YouTube Clone",
+      description: "YouTube clone with video fetching, built using React, Tailwind CSS, MUI, and RapidAPI.",
+      image: "/yt.png",
+      tech: ["React", "Tailwind CSS", "MUI", "RapidAPI"],
+      github: "https://github.com/mazen-essam/youtube-clone",
+      live: "https://m-youtube-clone.netlify.app/",
+      featured: false,
+      category: "Frontend",
+    },
+    // {
+    //   title: "Link Development Project",
+    //   description: "Frontend project built as part of a team using ReactJS, Sass, and Azure DevOps.",
+    //   image: "/placeholder.svg?height=300&width=400&text=Link+Dev+Project",
+    //   tech: ["React", "Sass", "Azure DevOps"],
+    //   github: "https://github.com/mazen-essam/linkDev",
+    //   live: "#",
+    //   featured: false,
+    //   category: "Frontend",
+    // },
+  ];
+
 
   const stats = [
     { label: "Years Experience", value: 2, suffix: "+", icon: Calendar },
@@ -235,17 +290,15 @@ export default function Portfolio() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-all duration-300 relative group px-3 py-2 rounded-lg ${
-                    activeSection === item
-                      ? "text-cyan-400 bg-cyan-400/10"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`capitalize transition-all duration-300 relative group px-3 py-2 rounded-lg ${activeSection === item
+                    ? "text-cyan-400 bg-cyan-400/10"
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {item}
                   <span
-                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transform transition-transform duration-300 ${
-                      activeSection === item ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    }`}
+                    className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transform transition-transform duration-300 ${activeSection === item ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
                   />
                 </button>
               ))}
@@ -289,9 +342,8 @@ export default function Portfolio() {
         </div>
 
         <div
-          className={`relative z-20 text-center max-w-5xl mx-auto px-4 transition-all duration-1000 ${
-            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`relative z-20 text-center max-w-5xl mx-auto px-4 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           {/* Enhanced Status Badge */}
           <div className="mb-8">
@@ -352,14 +404,17 @@ export default function Portfolio() {
               <Code className="mr-3 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
               View My Work
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 hover:border-cyan-400 bg-black/30 backdrop-blur-md transition-all duration-300 px-10 py-4 text-lg font-semibold group"
-            >
-              <Download className="mr-3 h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
-              Download CV
-            </Button>
+            <a href="/MazenEssamCV.pdf" download>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 hover:border-cyan-400 bg-black/30 backdrop-blur-md transition-all duration-300 px-10 py-4 text-lg font-semibold group"
+              >
+                <Download className="mr-3 h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
+                Download CV
+              </Button>
+            </a>
+
           </div>
 
           {/* Enhanced Social Links */}
@@ -614,13 +669,12 @@ export default function Portfolio() {
               <div key={index} className="relative">
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 to-blue-500 ml-6" />
                 <div
-                  className={`absolute left-0 top-8 w-3 h-3 rounded-full ml-5 ${
-                    exp.type === "current"
-                      ? "bg-green-400 animate-pulse"
-                      : exp.type === "past"
-                        ? "bg-cyan-400"
-                        : "bg-purple-400"
-                  }`}
+                  className={`absolute left-0 top-8 w-3 h-3 rounded-full ml-5 ${exp.type === "current"
+                    ? "bg-green-400 animate-pulse"
+                    : exp.type === "past"
+                      ? "bg-cyan-400"
+                      : "bg-purple-400"
+                    }`}
                 />
 
                 <div className="ml-16 p-8 rounded-xl bg-black/40 backdrop-blur-sm border border-white/10 hover:bg-black/60 hover:border-white/20 transition-all duration-300 group">
